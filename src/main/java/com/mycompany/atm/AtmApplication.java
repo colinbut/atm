@@ -7,6 +7,7 @@ package com.mycompany.atm;
 
 import com.mycompany.atm.model.AtmPoint;
 import com.mycompany.atm.model.MultipleAtmPoint;
+import com.mycompany.atm.model.SingleAtmPoint;
 import com.mycompany.atm.user.AtmUser;
 import com.mycompany.atm.user.Person;
 
@@ -18,15 +19,25 @@ import com.mycompany.atm.user.Person;
  */
 public class AtmApplication {
 
+    private AtmPoint atmPoint;
+
+
+    public void configureNumberOfAtmPoints(AtmPoint atmPoint) {
+        this.atmPoint = atmPoint;
+    }
+
 
     /**
-     * Main entry
-     *
-     * @param args
+     * Starts the application. Initialises all resources
      */
-    public static void main( String[] args ) {
+    public void start(boolean singleAtmPoint) {
 
-        AtmPoint atmPoint = new MultipleAtmPoint();
+        // Strategy design pattern
+        if (singleAtmPoint) {
+            configureNumberOfAtmPoints(new SingleAtmPoint());
+        } else {
+            configureNumberOfAtmPoints(new MultipleAtmPoint());
+        }
 
         Person mickey = new AtmUser("Mickey", atmPoint);
         Person donald = new AtmUser("Donald", atmPoint);
@@ -39,7 +50,15 @@ public class AtmApplication {
         new Thread((AtmUser)tom).start();
         new Thread((AtmUser)jerry).start();
         new Thread((AtmUser)casper).start();
+    }
 
-
+    /**
+     * Main entry
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        AtmApplication atmApplication = new AtmApplication();
+        atmApplication.start(true);
     }
 }

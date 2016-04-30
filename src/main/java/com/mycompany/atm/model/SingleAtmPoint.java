@@ -7,6 +7,9 @@ package com.mycompany.atm.model;
 
 import com.mycompany.atm.user.AtmUser;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * An implementation of a single cash point abstraction
  *
@@ -14,13 +17,7 @@ import com.mycompany.atm.user.AtmUser;
  */
 public class SingleAtmPoint implements AtmPoint {
 
-
-    /**
-     * Constructor
-     */
-    public SingleAtmPoint(){
-        //
-    }
+    private Lock lock = new ReentrantLock();
 
 
     /**
@@ -28,6 +25,19 @@ public class SingleAtmPoint implements AtmPoint {
      */
     @Override
     public void accessAtm(AtmUser atmUser) {
-        throw new UnsupportedOperationException("Not Yet Implemented!");
+        try {
+
+            System.out.println(atmUser.getName() + " is waiting to access an ATM machine");
+            lock.lock();
+
+            System.out.println(atmUser.getName() + " is accessing an ATM machine");
+            Thread.sleep(3000);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace(); //nobody can interrupt the user whilst they're using the machine
+        } finally {
+            System.out.println(atmUser.getName() + " is done using the ATM machine");
+            lock.unlock();
+        }
     }
 }
