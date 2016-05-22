@@ -22,7 +22,7 @@ public class AtmApplication {
     private AtmPoint atmPoint;
 
 
-    public void configureNumberOfAtmPoints(AtmPoint atmPoint) {
+    void configureNumberOfAtmPoints(AtmPoint atmPoint) {
         this.atmPoint = atmPoint;
     }
 
@@ -30,7 +30,7 @@ public class AtmApplication {
     /**
      * Starts the application. Initialises all resources
      */
-    public void start(boolean singleAtmPoint) {
+    void start(boolean singleAtmPoint) {
 
         // Strategy design pattern
         if (singleAtmPoint) {

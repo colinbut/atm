@@ -7,6 +7,7 @@ package com.mycompany.atm.model;
 
 import com.mycompany.atm.user.AtmUser;
 
+import java.math.BigDecimal;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -19,6 +20,14 @@ public class SingleAtmPoint implements AtmPoint {
 
     private Lock lock = new ReentrantLock();
 
+    private CashMachine cashMachine; // just the single cash machine
+
+    /**
+     * Constructor
+     */
+    public SingleAtmPoint() {
+        cashMachine = new AtmMachine();
+    }
 
     /**
      * {@inheritDoc}
@@ -31,6 +40,10 @@ public class SingleAtmPoint implements AtmPoint {
             lock.lock();
 
             System.out.println(atmUser.getName() + " is accessing an ATM machine");
+
+            BigDecimal balance = cashMachine.balance();
+            System.out.println("The balance is: " + balance);
+
             Thread.sleep(3000);
 
         } catch (InterruptedException e) {

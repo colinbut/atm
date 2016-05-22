@@ -17,7 +17,10 @@ public class AtmUser extends Person implements Runnable {
     private AtmPoint atmPoint;
 
     /**
-     * {@inheritDoc}
+     * Constructor
+     *
+     * @param name the name of this atm user person
+     * @param atmPoint the atm point at which this person stands at
      */
     public AtmUser(String name, AtmPoint atmPoint) {
         super(name);
