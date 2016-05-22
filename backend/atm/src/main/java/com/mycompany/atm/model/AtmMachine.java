@@ -6,6 +6,8 @@
 package com.mycompany.atm.model;
 
 
+import java.math.BigDecimal;
+
 /**
  * Represents an Automated Teller Machine
  *
@@ -14,6 +16,53 @@ package com.mycompany.atm.model;
  *
  * @author colin
  */
-public class AtmMachine implements CashMachine{
+public class AtmMachine implements CashMachine {
 
+    /**
+     {@inheritDoc}
+     */
+    @Override
+    public BigDecimal balance() {
+        throw new UnsupportedOperationException("Not Yet Implemented");
+    }
+
+    /**
+     {@inheritDoc}
+     */
+    @Override
+    public void cash(BigDecimal amount) {
+        throw new UnsupportedOperationException("Not Yet Implemented");
+    }
+
+    /**
+     {@inheritDoc}
+     */
+    @Override
+    public String cashWithReceipt(BigDecimal amount) {
+        throw new UnsupportedOperationException("Not Yet Implemented");
+    }
+
+    /**
+     {@inheritDoc}
+     */
+    @Override
+    public void mobilePhoneTopUp(BigDecimal amount) {
+        throw new UnsupportedOperationException("Not Yet Implemented");
+    }
+
+    /**
+     {@inheritDoc}
+     */
+    @Override
+    public String printedBalance() {
+        throw new UnsupportedOperationException("Not Yet Implemented");
+    }
+
+    /**
+     {@inheritDoc}
+     */
+    @Override
+    public void charityAndOtherServices() {
+        throw new UnsupportedOperationException("Not Yet Implemented");
+    }
 }
