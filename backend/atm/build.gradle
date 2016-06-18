@@ -6,4 +6,5 @@ jar {
 
 dependencies {
 	compile project(':bank-gateway')
+    compile 'ch.qos.logback:logback-classic:1.0.13'
 }
