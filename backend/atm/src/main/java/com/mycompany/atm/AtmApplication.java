@@ -15,14 +15,18 @@ import com.mycompany.atm.user.Person;
  * ATM
  *
  * @author colin
- *
  */
 public class AtmApplication {
 
     private AtmPoint atmPoint;
 
 
-    void configureNumberOfAtmPoints(AtmPoint atmPoint) {
+  /**
+   * Configuring the number of atms
+   *
+   * @param atmPoint the {@link AtmPoint}
+   */
+  void configureNumberOfAtmPoints(AtmPoint atmPoint) {
         this.atmPoint = atmPoint;
     }
 

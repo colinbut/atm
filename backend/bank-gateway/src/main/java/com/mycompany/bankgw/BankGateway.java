@@ -3,6 +3,7 @@ package com.mycompany.bankgw;
 /**
  * Bank Application Adapter
  *
+ * @author colin
  */
 public class BankGateway {
 
