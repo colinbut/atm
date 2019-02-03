@@ -21,12 +21,12 @@ public class AtmApplication {
     private AtmPoint atmPoint;
 
 
-  /**
-   * Configuring the number of atms
-   *
-   * @param atmPoint the {@link AtmPoint}
-   */
-  void configureNumberOfAtmPoints(AtmPoint atmPoint) {
+    /**
+     * Configuring the number of atms
+     *
+     * @param atmPoint the {@link AtmPoint}
+     */
+    void configureNumberOfAtmPoints(AtmPoint atmPoint) {
         this.atmPoint = atmPoint;
     }
 
